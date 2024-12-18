@@ -1,0 +1,3 @@
+D:/mephilabs/testsfml/cmake-build-debug/CMakeFiles/testsfml.dir
+D:/mephilabs/testsfml/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/mephilabs/testsfml/cmake-build-debug/CMakeFiles/rebuild_cache.dir
