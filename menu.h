@@ -8,7 +8,6 @@ void print_choose_prog() {
     cout << "Select the actions:\n" <<
          "1) Program\n" <<
          "2) Tests\n" <<
-         "3) Examples of how classes work\n" <<
          "Enter: ";
 }
 

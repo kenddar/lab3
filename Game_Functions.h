@@ -6,6 +6,9 @@
 #include "Graphics_elements.h"
 
 
+
+
+
 struct MoveScore {
     sf::Vector2i move;
     int score;
@@ -19,6 +22,18 @@ enum class Player { Cross, Circle, Empty };
 sf::Vector2i findBestMove(Player board[GRID_SIZE][GRID_SIZE], ISortedSequence<MoveScore>& moveSequence);
 int minimax(Player board[GRID_SIZE][GRID_SIZE], int depth, bool isMaximizing, ISortedSequence<MoveScore>& moveSequence);
 int evaluate(Player board[GRID_SIZE][GRID_SIZE]);
+
+
+bool isBoardFull(const Player board[GRID_SIZE][GRID_SIZE]) {
+    for (int i = 0; i < GRID_SIZE; ++i) {
+        for (int j = 0; j < GRID_SIZE; ++j) {
+            if (board[i][j] == Player::Empty) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
 
 bool checkWin(const Player board[GRID_SIZE][GRID_SIZE], Player player) {
     for (int i = 0; i < GRID_SIZE; ++i) {
@@ -125,17 +140,10 @@ int evaluate(Player board[GRID_SIZE][GRID_SIZE]) {
         return 1;
     }
 
-    bool isBoardFull = true;
-    for (int i = 0; i < GRID_SIZE; ++i) {
-        for (int j = 0; j < GRID_SIZE; ++j) {
-            if (board[i][j] == Player::Empty) {
-                isBoardFull = false;
-                break;
-            }
-        }
-    }
+    bool isFull = isBoardFull(board);
 
-    if (isBoardFull) {
+
+    if (isFull) {
         return 0;
     }
 
